@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2955902933916894678}
   - component: {fileID: 2209756258174093939}
   - component: {fileID: 4129333368334139065}
-  - component: {fileID: 2472100859108302703}
   - component: {fileID: 3355115149594436159}
-  m_Layer: 0
+  - component: {fileID: 2062166277131206924}
+  m_Layer: 8
   m_Name: Disk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2472100859108302700}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -81,20 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2472100859108302703
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2472100859108302700}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8803937527578110353, guid: c7d4d3ae63b6dc74aa18aeff8d8939e1, type: 3}
 --- !u!114 &3355115149594436159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,4 +94,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MyRodIndex: 0
-  DB: {fileID: 0}
+  MyRodStackIndex: 0
+  MyDiskSizeIndex: 0
+  DB: {fileID: 11400000, guid: 3e50b35e2a84aff4cbdecc0d49dcdeeb, type: 2}
+--- !u!114 &2062166277131206924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2472100859108302700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2d8377481f5f746821c193d101b709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MySet: {fileID: 11400000, guid: 530081fdb2ab2f14789e1d6ecede495d, type: 2}

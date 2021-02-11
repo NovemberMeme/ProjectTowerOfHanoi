@@ -12,11 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e43047fa30623b4e936dba359ec917a, type: 3}
   m_Name: DB
   m_EditorClassIdentifier: 
-  RodPos1: {fileID: 0}
-  RodPos2: {fileID: 0}
-  RodPos3: {fileID: 0}
-  DiskCount: 3
-  AllDisks: []
-  SizeScaleFactor: 1.2
-  DistanceScaleFactor: 0.1
-  Spacing: 1
+  CurrentHeldDisk: {fileID: 0}
+  DiskCount: 7
+  SizeScaleFactor: 0.1
+  DistanceScaleFactor: 0
+  Spacing: 0.5
+  PickUpPositionSpacing: 3
+  RodPositions:
+  - {x: -5, y: -3, z: 0}
+  - {x: 0, y: -3, z: 0}
+  - {x: 5, y: -3, z: 0}
+  DiskSets:
+  - {fileID: 11400000, guid: c4f44cbf32566a2499e94e454d6aa96d, type: 2}
+  - {fileID: 11400000, guid: 1159a62898e904c4dbc0f905825aa54f, type: 2}
+  - {fileID: 11400000, guid: 530081fdb2ab2f14789e1d6ecede495d, type: 2}
