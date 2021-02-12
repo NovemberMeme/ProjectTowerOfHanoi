@@ -11,7 +11,8 @@ namespace TowerOfHanoi
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            DelegateManager.onSelected?.Invoke(RodIndex);
+            if(!Utils.IsMoving)
+                DelegateManager.onSelected?.Invoke(RodIndex);
         }
 
         public void OnPointerEnter(PointerEventData eventData)

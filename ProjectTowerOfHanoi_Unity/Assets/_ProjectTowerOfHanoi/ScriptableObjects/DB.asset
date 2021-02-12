@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: DB
   m_EditorClassIdentifier: 
   CurrentHeldDisk: {fileID: 0}
-  DiskCount: 7
+  DiskCount: 6
   SizeScaleFactor: 0.1
   DistanceScaleFactor: 0
   Spacing: 0.5
   PickUpPositionSpacing: 3
+  MoveSpeed: 25
   RodPositions:
   - {x: -5, y: -3, z: 0}
   - {x: 0, y: -3, z: 0}

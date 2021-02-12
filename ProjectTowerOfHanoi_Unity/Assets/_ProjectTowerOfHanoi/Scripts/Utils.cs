@@ -6,6 +6,8 @@ namespace TowerOfHanoi
 {
     public static class Utils
     {
+        public static bool IsMoving = false;
+
         public static void SmoothMove(SmoothMoveData _data, float _speed)
         {
             _data.ToMove.StartCoroutine(_BeginSmoothMove(_data, _speed));
@@ -13,6 +15,7 @@ namespace TowerOfHanoi
 
         private static IEnumerator _BeginSmoothMove(SmoothMoveData _data, float _speed)
         {
+            IsMoving = true;
             int i = 0;
             while (i < _data.Destinations.Count)
             {
@@ -21,6 +24,7 @@ namespace TowerOfHanoi
                 if (Vector3.Distance(_data.ToMove.transform.position, _data.Destinations[i]) < 0.1f)
                     i++;
             }
+            IsMoving = false;
         }
     }
 }

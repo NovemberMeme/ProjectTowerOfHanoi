@@ -15,7 +15,8 @@ namespace TowerOfHanoi
 
         private void OnDisable()
         {
-            MySet.RuntimeSet.Remove(this);
+            if(MySet != null)
+                MySet.RuntimeSet.Remove(this);
         }
 
         public void ChangeThing(ThingRuntimeSet _newSet)
