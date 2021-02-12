@@ -11,6 +11,9 @@ namespace TowerOfHanoi
 
         public int DiskCount = 3;
 
+        public Material BaseMaterial;
+        public Color BaseColor;
+
         public float SizeScaleFactor = 1.2f;
         public float DistanceScaleFactor = 0.1f;
         public float Spacing = 1;

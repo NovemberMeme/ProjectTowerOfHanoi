@@ -18,17 +18,5 @@ namespace TowerOfHanoi
             else
                 return RuntimeSet[RuntimeSet.Count - 1];
         }
-
-        //public void ReverseList()
-        //{
-        //    List<Thing> newList = new List<Thing>();
-
-        //    for (int i = RuntimeSet.Count - 1; i >= 0; i--)
-        //    {
-        //        newList.Add(RuntimeSet[i]);
-        //    }
-
-        //    RuntimeSet = newList;
-        //}
     }
 }

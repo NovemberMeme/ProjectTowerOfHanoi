@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: DB
   m_EditorClassIdentifier: 
   CurrentHeldDisk: {fileID: 0}
-  DiskCount: 6
+  DiskCount: 7
+  BaseMaterial: {fileID: 2100000, guid: 0417be2cf6742864188e1e987183bd6b, type: 2}
+  BaseColor: {r: 1, g: 0, b: 1, a: 1}
   SizeScaleFactor: 0.1
   DistanceScaleFactor: 0
   Spacing: 0.5

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TowerOfHanoi
 {
-    public class DiskSetter : MonoBehaviour
+    public class DiskManager : MonoBehaviour
     {
         public DataBaseSO DB;
         public GameObject DiskPrefab;
@@ -37,6 +37,10 @@ namespace TowerOfHanoi
                 float newScale = (newDisk.MyDiskSizeIndex * DB.SizeScaleFactor) + 1;
                 newDiskGO.transform.localScale = new Vector3(newScale, newDiskGO.transform.localScale.y, newScale);
                 newDisks.Add(newDisk);
+                MeshRenderer newDiskRenderer = newDiskGO.GetComponent<MeshRenderer>();
+                float colorScaleFactor = 1 - ((float)newDisk.MyDiskSizeIndex / (float)DB.DiskCount);
+                Color newColor = new Color(DB.BaseColor.r * colorScaleFactor, DB.BaseColor.g * colorScaleFactor, DB.BaseColor.b * colorScaleFactor);
+                newDiskRenderer.material = Utils.SetNewMaterial(newColor, DB.BaseMaterial);
             }
 
             DB.DiskSets[0].RuntimeSet.Reverse();

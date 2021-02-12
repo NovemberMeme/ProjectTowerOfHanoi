@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TowerOfHanoi.DataBaseSO" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACARCgJQBAAgBAAgAAAAAEAAAAAAAABAEAAABEAAAA=</HashCode>
+      <FileName>Assets\_ProjectTowerOfHanoi\Scripts\DataBaseSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerOfHanoi.DelegateManager" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_ProjectTowerOfHanoi\Scripts\DelegateManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerOfHanoi.DiskManager" Collapsed="true">
+    <Position X="1" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAgAAAAAIAAAAAAAACBA=</HashCode>
+      <FileName>Assets\_ProjectTowerOfHanoi\Scripts\DiskManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerOfHanoi.Selector" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAgAAAAgAAAAQAAAAA=</HashCode>
+      <FileName>Assets\_ProjectTowerOfHanoi\Scripts\Selector.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TowerOfHanoi.SmoothMoveData" Collapsed="true">
+    <Position X="1" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_ProjectTowerOfHanoi\Scripts\SmoothMoveData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerOfHanoi.Thing" Collapsed="true">
+    <Position X="1" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAIAAAAAAIAAAAAAAACAA=</HashCode>
+      <FileName>Assets\_ProjectTowerOfHanoi\Scripts\Thing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerOfHanoi.ThingRuntimeSet" Collapsed="true">
+    <Position X="1" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_ProjectTowerOfHanoi\Scripts\ThingRuntimeSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerOfHanoi.Utils" Collapsed="true">
+    <Position X="4.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAIAAAAAAAEAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\_ProjectTowerOfHanoi\Scripts\Utils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
