@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: SoundToPlay.Clip
       value: 
       objectReference: {fileID: 8300000, guid: 5180ab8fc1d7ec644bb5f9a4421e8639, type: 3}
+    - target: {fileID: 581703953529300646, guid: b40aee1334a87a840b0ce3bc7f9e22b8,
+        type: 3}
+      propertyPath: SoundToPlay.Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1757279257164022327, guid: b40aee1334a87a840b0ce3bc7f9e22b8,
         type: 3}
       propertyPath: m_RootOrder
@@ -70,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 8834527597011228326, guid: b40aee1334a87a840b0ce3bc7f9e22b8,
         type: 3}
       propertyPath: m_Name
-      value: FBGroup_OnHoverB
+      value: FBGroup_HoverB
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b40aee1334a87a840b0ce3bc7f9e22b8, type: 3}

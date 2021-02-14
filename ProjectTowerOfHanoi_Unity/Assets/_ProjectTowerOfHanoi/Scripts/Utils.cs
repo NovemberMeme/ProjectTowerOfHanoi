@@ -22,7 +22,7 @@ namespace TowerOfHanoi
 
         private static IEnumerator _BeginSmoothMove(SmoothMoveData _data, float _speed)
         {
-            IsMoving = true;
+            DelegateManager.onHeldDiskMove?.Invoke(true);
             int i = 0;
             while (i < _data.Destinations.Count)
             {
@@ -31,7 +31,7 @@ namespace TowerOfHanoi
                 if (Vector3.Distance(_data.ToMove.transform.position, _data.Destinations[i]) < 0.01f)
                     i++;
             }
-            IsMoving = false;
+            DelegateManager.onHeldDiskMove?.Invoke(false);
         }
     }
 }

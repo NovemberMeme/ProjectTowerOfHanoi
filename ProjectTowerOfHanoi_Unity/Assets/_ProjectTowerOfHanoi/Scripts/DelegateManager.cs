@@ -15,5 +15,8 @@ namespace TowerOfHanoi
 
         public delegate void PlaySound(string _soundName);
         public static PlaySound playSound;
+
+        public delegate void OnHeldDiskMove(bool _isStart);
+        public static OnHeldDiskMove onHeldDiskMove;
     }
 }
