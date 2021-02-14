@@ -19,5 +19,18 @@ namespace TowerOfHanoi
 
         [HideInInspector]
         public AudioSource Source;
+
+        public SoundData(SoundData _copy)
+        {
+            if(_copy.Clip != null)
+                Clip = _copy.Clip;
+            if(_copy.Source != null)
+                Source = _copy.Source;
+
+            Volume = _copy.Volume;
+            Pitch = _copy.Pitch;
+            Loop = _copy.Loop;
+            PlayOnAwake = _copy.PlayOnAwake;
+        }
     }
 }

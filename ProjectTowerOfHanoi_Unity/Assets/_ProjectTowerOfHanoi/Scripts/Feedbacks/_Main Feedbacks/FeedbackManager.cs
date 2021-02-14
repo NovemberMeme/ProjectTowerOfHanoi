@@ -9,7 +9,7 @@ namespace TowerOfHanoi
         public Transform FeedbackHolder;
         public DataBaseSO DB;
 
-        private void OnEnable()
+        private void Start()
         {
             InitializeFeedbacks();
         }
@@ -26,6 +26,15 @@ namespace TowerOfHanoi
                     transform.position, 
                     Quaternion.identity, 
                     FeedbackHolder);
+
+                //FeedbackGroup newFBGroup = newFBGroupObject.GetComponent<FeedbackGroup>();
+
+                //for (int j = 0; j < newFBGroup.Feedbacks.Length; j++)
+                //{
+                //    newFBGroup.Feedbacks[j].SoundToPlay = new SoundData(newFBGroup.Feedbacks[j].SoundToPlay);
+                //    DelegateManager.initializeSound.Invoke(newFBGroup.Feedbacks[j].SoundToPlay);
+                //    Debug.Log("Invoked " + newFBGroup.Feedbacks[j].SoundToPlay.Clip.name);
+                //}
             }
         }
     }

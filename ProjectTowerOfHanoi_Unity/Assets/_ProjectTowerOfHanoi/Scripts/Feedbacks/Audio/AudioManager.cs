@@ -30,37 +30,32 @@ namespace TowerOfHanoi
 
         private void Start()
         {
-            for (int i = 0; i < DB.GameFeedbacks.Count; i++)
-            {
-                for (int j = 0; j < DB.GameFeedbacks[i].Feedbacks.Length; j++)
-                {
-                    SoundData _soundData = DB.GameFeedbacks[i].Feedbacks[j].SoundToPlay;
-                    _soundData.Source = gameObject.AddComponent<AudioSource>();
-                    _soundData.Source.clip = _soundData.Clip;
+            //for (int i = 0; i < DB.GameFeedbacks.Count; i++)
+            //{
+            //    for (int j = 0; j < DB.GameFeedbacks[i].Feedbacks.Length; j++)
+            //    {
+            //        SoundData _soundData = DB.GameFeedbacks[i].Feedbacks[j].SoundToPlay;
+            //        _soundData.Source = gameObject.AddComponent<AudioSource>();
+            //        _soundData.Source.clip = _soundData.Clip;
 
-                    _soundData.Source.volume = _soundData.Volume;
-                    _soundData.Source.pitch = _soundData.Pitch;
-                    _soundData.Source.loop = _soundData.Loop;
-                    _soundData.Source.playOnAwake = _soundData.PlayOnAwake;
-                    //SoundList.Add(DB.GameFeedbacks[i].Feedbacks[j].SoundToPlay);
-                    //ForceInitializeSound(DB.GameFeedbacks[i].Feedbacks[j].SoundToPlay, true);
-                }
-            }
+            //        _soundData.Source.volume = _soundData.Volume;
+            //        _soundData.Source.pitch = _soundData.Pitch;
+            //        _soundData.Source.loop = _soundData.Loop;
+            //        _soundData.Source.playOnAwake = _soundData.PlayOnAwake;
+            //        //SoundList.Add(DB.GameFeedbacks[i].Feedbacks[j].SoundToPlay);
+            //        //ForceInitializeSound(DB.GameFeedbacks[i].Feedbacks[j].SoundToPlay, true);
+            //    }
+            //}
             InitializeAllSounds();
-
-            for (int i = 0; i < SoundList.Count; i++)
-            {
-                if (SoundList[i].PlayOnAwake)
-                    PlaySound(SoundList[i].Clip.name);
-            }
         }
 
         public void InitializeSound(SoundData _soundData)
         {
-            Debug.Log("Delegate Called?");
+            //Debug.Log("Delegate Called?");
+
             if (!SoundList.Contains(_soundData))
             {
-                Debug.Log("Add?");
+                //Debug.Log("Add?");
                 SoundList.Add(_soundData);
                 _soundData.Source = gameObject.AddComponent<AudioSource>();
                 _soundData.Source.clip = _soundData.Clip;

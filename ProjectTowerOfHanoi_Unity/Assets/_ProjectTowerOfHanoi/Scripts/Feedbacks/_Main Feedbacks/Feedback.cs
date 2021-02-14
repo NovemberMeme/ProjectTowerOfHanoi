@@ -8,10 +8,12 @@ namespace TowerOfHanoi
     {
         public SoundData SoundToPlay;
 
-        private void OnEnable()
+        private void Start()
         {
-            Debug.Log("Delegate broadcasted?");
+            //Debug.Log("Delegate broadcasted?");
             DelegateManager.initializeSound?.Invoke(SoundToPlay);
+            if (SoundToPlay.PlayOnAwake)
+                PlaySounds();
         }
 
         public void PlayFeedback()
