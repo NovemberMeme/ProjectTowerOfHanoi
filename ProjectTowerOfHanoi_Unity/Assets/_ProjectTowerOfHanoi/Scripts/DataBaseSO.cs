@@ -20,12 +20,16 @@ namespace TowerOfHanoi
         public float PickUpPositionSpacing = 3;
         public float MoveSpeed = 0.25f;
 
+        public List<AudioClip> Clips;
+
         List<Vector3> pickUpPositions = new List<Vector3>();
         public List<Vector3> RodPositions = new List<Vector3>();
         public List<ThingRuntimeSet> DiskSets = new List<ThingRuntimeSet>();
 
         public void OnSelected(int _rodIndex)
         {
+            PlayUISFX(_rodIndex);
+
             if(CurrentHeldDisk == null)
             {
                 if (DiskSets[_rodIndex].RuntimeSet.Count != 0)
@@ -35,6 +39,11 @@ namespace TowerOfHanoi
             {
                 Place(_rodIndex, true);
             }
+        }
+
+        private void PlayUISFX(int _rodIndex)
+        {
+            DelegateManager.playSound?.Invoke(Clips[_rodIndex].name);
         }
 
         public void PickUp(Disk _disk, bool _smooth)
