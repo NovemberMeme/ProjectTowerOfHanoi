@@ -21,6 +21,22 @@ MonoBehaviour:
   Spacing: 0.5
   PickUpPositionSpacing: 3
   MoveSpeed: 25
+  GameFeedbacks:
+  - {fileID: 2898264461428154347, guid: b40aee1334a87a840b0ce3bc7f9e22b8, type: 3}
+  - {fileID: 2829403519526531136, guid: f19b1d53d15448845bd21fe865e3b92f, type: 3}
+  - {fileID: 2829403519526531136, guid: 4dbcc417ccda49d4a88709a0eb92bbbd, type: 3}
+  - {fileID: 2829403519526531136, guid: 3ec1053d0dfb65c48b6d9a2cf5acfcaf, type: 3}
+  - {fileID: 2829403519526531136, guid: cf0f63e94882f144f8efee6d170cfa90, type: 3}
+  - {fileID: 2829403519526531136, guid: 4a82ebfbbd60ca343aacad667d61b5e1, type: 3}
+  - {fileID: 2829403519526531136, guid: d20f3f73e61b4c24c87eb2a378679c5a, type: 3}
+  - {fileID: 2829403519526531136, guid: b5690b137c268cb4b8091e881069c30b, type: 3}
+  - {fileID: 2829403519526531136, guid: 76d565ec57c28e745a9afd4abddda223, type: 3}
+  - {fileID: 2829403519526531136, guid: d353bff8413bd664daf791d71b144d14, type: 3}
+  - {fileID: 2829403519526531136, guid: cd3b1472c00a4f34693bd9ad9cb3cad0, type: 3}
+  - {fileID: 2829403519526531136, guid: 0744b129a54a9754fa83b461ceb88634, type: 3}
+  - {fileID: 2829403519526531136, guid: 8e7907be998086b4c8c86e06e34a9cbc, type: 3}
+  - {fileID: 2829403519526531136, guid: b17ead61f5aac1f4b9cc1bc2c4d8f3d0, type: 3}
+  - {fileID: 2829403519526531136, guid: 4956dd8bbc6058c4bb5c0f14369a6a86, type: 3}
   RodPositions:
   - {x: -5, y: -3, z: 0}
   - {x: 0, y: -3, z: 0}

@@ -20,7 +20,7 @@ namespace TowerOfHanoi
         public float PickUpPositionSpacing = 3;
         public float MoveSpeed = 0.25f;
 
-        public List<AudioClip> Clips;
+        public List<FeedbackGroup> GameFeedbacks;
 
         List<Vector3> pickUpPositions = new List<Vector3>();
         public List<Vector3> RodPositions = new List<Vector3>();
@@ -43,7 +43,7 @@ namespace TowerOfHanoi
 
         private void PlayUISFX(int _rodIndex)
         {
-            DelegateManager.playSound?.Invoke(Clips[_rodIndex].name);
+            DelegateManager.playSound?.Invoke(GameFeedbacks[_rodIndex].name);
         }
 
         public void PickUp(Disk _disk, bool _smooth)
