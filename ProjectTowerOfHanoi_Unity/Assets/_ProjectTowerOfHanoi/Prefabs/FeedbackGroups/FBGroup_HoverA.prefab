@@ -65,3 +65,4 @@ MonoBehaviour:
     Loop: 0
     PlayOnAwake: 0
     Source: {fileID: 0}
+  ParticleFX: {fileID: 0}

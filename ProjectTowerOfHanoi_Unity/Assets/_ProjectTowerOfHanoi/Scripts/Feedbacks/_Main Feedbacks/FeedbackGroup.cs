@@ -25,5 +25,13 @@ namespace TowerOfHanoi
                 Feedbacks[i].PlayFeedback();
             }
         }
+
+        public void StopFeedbacks()
+        {
+            for (int i = 0; i < Feedbacks.Length; i++)
+            {
+                Feedbacks[i].StopFeedback();
+            }
+        }
     }
 }

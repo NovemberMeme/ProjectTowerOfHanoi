@@ -10,7 +10,7 @@ namespace TowerOfHanoi
 
         public void OnStartHover()
         {
-            onStartHoverFeedbacks.PlayFeedbacks();
+            onStartHoverFeedbacks?.PlayFeedbacks();
         }
     }
 }

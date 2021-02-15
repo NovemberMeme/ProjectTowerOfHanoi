@@ -9,7 +9,7 @@ namespace TowerOfHanoi
         public void OnPickUp(int _rodIndex)
         {
             DelegateManager.onSelected?.Invoke(_rodIndex);
-            onSelectFeedbacks.PlayFeedbacks();
+            onSelectFeedbacks?.PlayFeedbacks();
         }
     }
 }

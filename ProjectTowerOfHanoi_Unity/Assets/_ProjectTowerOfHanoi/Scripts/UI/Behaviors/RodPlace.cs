@@ -11,7 +11,7 @@ namespace TowerOfHanoi
         public void OnPlace(int _rodIndex)
         {
             DelegateManager.onSelected?.Invoke(_rodIndex);
-            OnPlaceFeedbacks.PlayFeedbacks();
+            OnPlaceFeedbacks?.PlayFeedbacks();
         }
     }
 }
