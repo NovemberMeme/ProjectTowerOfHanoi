@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 8834527597011228326, guid: b40aee1334a87a840b0ce3bc7f9e22b8,
         type: 3}
       propertyPath: m_Name
-      value: FBGroup_StopHoverA 1
+      value: FBGroup_StopHoverB
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b40aee1334a87a840b0ce3bc7f9e22b8, type: 3}

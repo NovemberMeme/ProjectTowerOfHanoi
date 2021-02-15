@@ -6,6 +6,6 @@ namespace TowerOfHanoi
 {
     public interface IReturn 
     {
-        void OnReturn();
+        void OnReturn(int _rodIndex);
     }
 }

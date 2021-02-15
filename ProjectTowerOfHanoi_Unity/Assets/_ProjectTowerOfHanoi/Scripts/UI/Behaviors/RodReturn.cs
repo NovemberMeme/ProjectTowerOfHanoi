@@ -8,8 +8,9 @@ namespace TowerOfHanoi
     {
         public FeedbackGroup OnReturnFeedbacks;
 
-        public void OnReturn()
+        public void OnReturn(int _rodIndex)
         {
+            DelegateManager.onSelected?.Invoke(_rodIndex);
             OnReturnFeedbacks.PlayFeedbacks();
         }
     }

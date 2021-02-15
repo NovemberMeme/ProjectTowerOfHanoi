@@ -6,6 +6,6 @@ namespace TowerOfHanoi
 {
     public interface IPlace 
     {
-        void OnPlace();
+        void OnPlace(int _rodIndex);
     }
 }

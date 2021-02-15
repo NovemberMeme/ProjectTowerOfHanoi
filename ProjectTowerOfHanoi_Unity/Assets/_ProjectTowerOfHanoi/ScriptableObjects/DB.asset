@@ -21,6 +21,12 @@ MonoBehaviour:
   Spacing: 0.5
   PickUpPositionSpacing: 3
   MoveSpeed: 25
+  HoverSFXCooldown: 0.2
+  IsOnHoverCooldown: 0
+  StateDefinition: {fileID: 11400000, guid: 75049b8bc4be2b24fb602b575230aa83, type: 2}
+  CurrentSO_StateData:
+    SO_State: {fileID: 11400000, guid: 71e4dc2c59f9f9b449287d67d5a81765, type: 2}
+    RodIndex: 0
   GameFeedbacks:
   - {fileID: 2898264461428154347, guid: b40aee1334a87a840b0ce3bc7f9e22b8, type: 3}
   - {fileID: 2829403519526531136, guid: f19b1d53d15448845bd21fe865e3b92f, type: 3}

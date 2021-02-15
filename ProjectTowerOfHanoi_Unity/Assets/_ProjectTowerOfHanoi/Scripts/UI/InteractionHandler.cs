@@ -9,44 +9,83 @@ namespace TowerOfHanoi
     {
         public int RodIndex;
 
-        private bool isHeldDiskAnimating = false;
+        public DataBaseSO DB;
 
-        private ISelect MySelectorBehavior;
+        private IPickUp MyPickUpBehavior;
+        private IPlace MyPlaceBehavior;
+        private IReturn MyReturnBehavior;
         private IStartHover MyStartHoverBehavior;
+        private IStopHover MyStopHoverBehavior;
 
         private void Awake()
         {
-            MySelectorBehavior = GetComponent<ISelect>();
+            MyPickUpBehavior = GetComponent<IPickUp>();
+            MyPlaceBehavior = GetComponent<IPlace>();
+            MyReturnBehavior = GetComponent<IReturn>();
             MyStartHoverBehavior = GetComponent<IStartHover>();
+            MyStopHoverBehavior = GetComponent<IStopHover>();
         }
 
         private void OnEnable()
         {
-            
+
         }
 
-        private void SetDiskState(bool _isAnimating)
+        private void OnDisable()
+        {
+
+        }
+
+        private void SetDiskState(SO_StateData _newDiskStateData)
         {
 
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (!Utils.IsMoving)
+            if (DB.CurrentSO_StateData.SO_State != DB.StateDefinition.AnimatingState)
             {
-                MySelectorBehavior.OnSelect(RodIndex);
+                if (DB.CurrentSO_StateData.SO_State == DB.StateDefinition.HeldState)
+                {
+                    if(DB.CurrentSO_StateData.RodIndex == RodIndex)
+                    {
+                        MyReturnBehavior.OnReturn(RodIndex);
+                    }
+                    else
+                    {
+                        MyPlaceBehavior.OnPlace(RodIndex);
+                    }
+                }
+                else if (DB.CurrentSO_StateData.SO_State == DB.StateDefinition.PlacedState)
+                {
+                    MyPickUpBehavior.OnPickUp(RodIndex);
+                }
             }
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if(!Utils.IsMoving)
+            if(DB.CurrentSO_StateData.SO_State == DB.StateDefinition.PlacedState &&
+                !DB.IsOnHoverCooldown)
+            {
                 MyStartHoverBehavior.OnStartHover();
+            }
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            
+            if (DB.CurrentSO_StateData.SO_State == DB.StateDefinition.PlacedState &&
+                !DB.IsOnHoverCooldown)
+            {
+                MyStopHoverBehavior.OnStopHover();
+            }
+        }
+
+        private IEnumerator _BeginHoverSFXCooldown()
+        {
+            DB.IsOnHoverCooldown = true;
+            yield return new WaitForSeconds(DB.HoverSFXCooldown);
+            DB.IsOnHoverCooldown = false;
         }
     }
 }

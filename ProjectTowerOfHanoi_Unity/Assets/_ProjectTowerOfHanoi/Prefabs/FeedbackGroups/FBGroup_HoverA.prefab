@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundToPlay:
     Clip: {fileID: 8300000, guid: 9da02a06c4bb34545a42189bfb1eb6f5, type: 3}
-    Volume: 0.5
+    Volume: 0.2
     Pitch: 1
     Loop: 0
     PlayOnAwake: 0
