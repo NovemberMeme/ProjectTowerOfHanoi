@@ -7,7 +7,7 @@ namespace TowerOfHanoi
     public class Feedback : MonoBehaviour
     {
         public SoundData SoundToPlay;
-        public GameObject ParticleFX;
+        public ParticleSystem ParticleFX;
 
         private void Start()
         {
@@ -17,7 +17,9 @@ namespace TowerOfHanoi
                 PlaySounds();
 
             if (ParticleFX != null)
-                ParticleFX.SetActive(false);
+            {
+                ParticleFX?.Pause();
+            }
         }
 
         public void PlayFeedback()
@@ -44,12 +46,14 @@ namespace TowerOfHanoi
 
         private void PlayParticleFX()
         {
-            ParticleFX?.SetActive(true);
+            ParticleFX?.Play();
+            //ParticleFX?.SetActive(true);
         }
 
         private void StopParticleFX()
         {
-            ParticleFX?.SetActive(false);
+            ParticleFX?.Pause();
+            //ParticleFX?.SetActive(false);
         }
     }
 }
