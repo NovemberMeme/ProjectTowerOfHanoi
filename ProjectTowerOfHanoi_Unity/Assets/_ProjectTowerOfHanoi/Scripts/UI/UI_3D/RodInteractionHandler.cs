@@ -5,49 +5,32 @@ using UnityEngine.EventSystems;
 
 namespace TowerOfHanoi
 {
-    public class InteractionHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+    public class RodInteractionHandler : InteractionHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         public int RodIndex;
 
-        public DataBaseSO DB;
-
-        private IPickUp MyPickUpBehavior;
-        private IPlace MyPlaceBehavior;
-        private IReturn MyReturnBehavior;
-        private IStartHover MyStartHoverBehavior;
-        private IStopHover MyStopHoverBehavior;
-
-        private void Awake()
-        {
-            MyPickUpBehavior = GetComponent<IPickUp>();
-            MyPlaceBehavior = GetComponent<IPlace>();
-            MyReturnBehavior = GetComponent<IReturn>();
-            MyStartHoverBehavior = GetComponent<IStartHover>();
-            MyStopHoverBehavior = GetComponent<IStopHover>();
-        }
-
-        private void OnEnable()
-        {
-
-        }
-
-        private void OnDisable()
-        {
-
-        }
-
-        private void SetDiskState(SO_StateData _newDiskStateData)
-        {
-
-        }
-
         public void OnPointerClick(PointerEventData eventData)
+        {
+            PointerClickResponse();
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            PointerEnterResponse();
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            PointerExitResponse();
+        }
+
+        protected override void PointerClickResponse()
         {
             if (DB.CurrentSO_StateData.SO_State != DB.StateDefinition.AnimatingState)
             {
                 if (DB.CurrentSO_StateData.SO_State == DB.StateDefinition.HeldState)
                 {
-                    if(DB.CurrentSO_StateData.RodIndex == RodIndex)
+                    if (DB.CurrentSO_StateData.RodIndex == RodIndex)
                     {
                         MyReturnBehavior.OnReturn(RodIndex);
                     }
@@ -63,19 +46,19 @@ namespace TowerOfHanoi
             }
         }
 
-        public void OnPointerEnter(PointerEventData eventData)
+        protected override void PointerEnterResponse()
         {
-            if(DB.CurrentSO_StateData.SO_State == DB.StateDefinition.PlacedState &&
-                !DB.IsOnHoverCooldown)
+            if (DB.CurrentSO_StateData.SO_State == DB.StateDefinition.PlacedState &&
+                            !DB.IsOnHoverCooldown)
             {
                 MyStartHoverBehavior.OnStartHover();
             }
         }
 
-        public void OnPointerExit(PointerEventData eventData)
+        protected override void PointerExitResponse()
         {
             if (DB.CurrentSO_StateData.SO_State == DB.StateDefinition.PlacedState &&
-                !DB.IsOnHoverCooldown)
+                            !DB.IsOnHoverCooldown)
             {
                 MyStopHoverBehavior.OnStopHover();
             }

@@ -18,7 +18,7 @@ namespace TowerOfHanoi
 
             if (ParticleFX != null)
             {
-                ParticleFX?.Pause();
+                ParticleFX.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
         }
 
@@ -36,7 +36,8 @@ namespace TowerOfHanoi
 
         private void PlaySounds()
         {
-            DelegateManager.playSound?.Invoke(SoundToPlay.Clip.name);
+            if(SoundToPlay.Clip != null)
+                DelegateManager.playSound?.Invoke(SoundToPlay.Clip.name);
         }
 
         private void StopSounds()
@@ -46,13 +47,15 @@ namespace TowerOfHanoi
 
         private void PlayParticleFX()
         {
-            ParticleFX?.Play();
+            if(ParticleFX != null)
+                ParticleFX.Play(true);
             //ParticleFX?.SetActive(true);
         }
 
         private void StopParticleFX()
         {
-            ParticleFX?.Pause();
+            if (ParticleFX != null)
+                ParticleFX.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             //ParticleFX?.SetActive(false);
         }
     }

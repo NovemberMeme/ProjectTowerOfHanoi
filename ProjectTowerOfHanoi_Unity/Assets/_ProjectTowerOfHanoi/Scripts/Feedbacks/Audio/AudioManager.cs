@@ -110,6 +110,9 @@ namespace TowerOfHanoi
         {
             for (int i = 0; i < SoundList.Count; i++)
             {
+                if (SoundList[i].Clip == null)
+                    continue;
+
                 if(SoundList[i].Clip.name == _soundName)
                 {
                     SoundData s = SoundList[i];
