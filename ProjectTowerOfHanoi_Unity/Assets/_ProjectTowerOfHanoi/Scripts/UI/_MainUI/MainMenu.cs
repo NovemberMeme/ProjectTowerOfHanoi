@@ -10,6 +10,7 @@ namespace WereAllGonnaDieAnywayNew
         public GameObject mainMenu;
         public GameObject loadMenu;
         public GameObject settingsMenu;
+        public GameObject diskSetupMenu;
 
         public TimeData timeData;
 
@@ -17,57 +18,46 @@ namespace WereAllGonnaDieAnywayNew
 
         private void Start()
         {
-            TransitionToMainMenu();
+            TransitionMenus(mainMenu);
         }
 
-        public void TransitionToMainMenu()
-        {
-            mainMenu.SetActive(true);
-            loadMenu.SetActive(false);
-            settingsMenu.SetActive(false);
-        }
-
-        public void TransitionToLoadMenu()
-        {
-            mainMenu.SetActive(false);
-            settingsMenu.SetActive(false);
-
-            loadMenu.SetActive(true);
-        }
-
-        public void TransitionToSettingsMenu()
+        public void CloseAllMenus()
         {
             mainMenu.SetActive(false);
             loadMenu.SetActive(false);
+            settingsMenu.SetActive(false);
+            diskSetupMenu.SetActive(false);
+        }
 
-            settingsMenu.SetActive(true);
+        public void TransitionMenus(GameObject _targetMenu)
+        {
+            CloseAllMenus();
+            _targetMenu.SetActive(true);
         }
 
         public void NewGame()
         {
-            SceneManager.LoadScene(newGameSceneName);
-            timeData.ShouldLoad = false;
+            TransitionMenus(diskSetupMenu);
         }
 
         public void LoadGame()
         {
-            SceneManager.LoadScene(newGameSceneName);
-            timeData.ShouldLoad = true;
+            TransitionMenus(loadMenu);
         }
 
         public void LoadGameButton()
         {
-            TransitionToLoadMenu();
+            TransitionMenus(loadMenu);
         }
 
         public void Settings()
         {
-            TransitionToSettingsMenu();
+            TransitionMenus(settingsMenu);
         }
 
         public void Back()
         {
-            TransitionToMainMenu();
+            TransitionMenus(mainMenu);
         }
 
         public void ExitGame()

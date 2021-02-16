@@ -4,12 +4,14 @@ namespace TowerOfHanoi
 {
     public class RodPickUp : MonoBehaviour, IPickUp
     {
-        public FeedbackGroup onSelectFeedbacks;
+        public FeedbackGroup FeedbacksToStart;
+        public FeedbackGroup FeedbacksToStop;
 
         public void OnPickUp(int _rodIndex)
         {
             DelegateManager.onSelected?.Invoke(_rodIndex);
-            onSelectFeedbacks?.PlayFeedbacks();
+            FeedbacksToStop?.StopFeedbacks();
+            FeedbacksToStart?.PlayFeedbacks();
         }
     }
 }

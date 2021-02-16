@@ -59,6 +59,7 @@ namespace TowerOfHanoi
                 SoundList.Add(_soundData);
                 _soundData.Source = gameObject.AddComponent<AudioSource>();
                 _soundData.Source.clip = _soundData.Clip;
+                _soundData.Source.outputAudioMixerGroup = _soundData.OutputGroup;
 
                 _soundData.Source.volume = _soundData.Volume;
                 _soundData.Source.pitch = _soundData.Pitch;
@@ -76,6 +77,7 @@ namespace TowerOfHanoi
             SoundList.Add(_soundData);
             _soundData.Source = gameObject.AddComponent<AudioSource>();
             _soundData.Source.clip = _soundData.Clip;
+            _soundData.Source.outputAudioMixerGroup = _soundData.OutputGroup;
 
             _soundData.Source.volume = _soundData.Volume;
             _soundData.Source.pitch = _soundData.Pitch;

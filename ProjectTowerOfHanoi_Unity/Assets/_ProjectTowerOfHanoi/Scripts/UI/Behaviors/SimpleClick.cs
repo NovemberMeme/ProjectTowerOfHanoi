@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace TowerOfHanoi
 {
-    public class RodStartHover : MonoBehaviour, IStartHover
+    public class SimpleClick : IClick
     {
         public FeedbackGroup FeedbacksToStart;
         public FeedbackGroup FeedbacksToStop;
 
-        public void OnStartHover()
+        public void OnClick()
         {
             FeedbacksToStop?.StopFeedbacks();
             FeedbacksToStart?.PlayFeedbacks();

@@ -9,6 +9,17 @@ namespace TowerOfHanoi
     {
         public int RodIndex;
 
+        protected IPickUp MyPickUpBehavior;
+        protected IPlace MyPlaceBehavior;
+        protected IReturn MyReturnBehavior;
+
+        private void Awake()
+        {
+            MyPickUpBehavior = GetComponent<IPickUp>();
+            MyPlaceBehavior = GetComponent<IPlace>();
+            MyReturnBehavior = GetComponent<IReturn>();
+        }
+
         public void OnPointerClick(PointerEventData eventData)
         {
             PointerClickResponse();

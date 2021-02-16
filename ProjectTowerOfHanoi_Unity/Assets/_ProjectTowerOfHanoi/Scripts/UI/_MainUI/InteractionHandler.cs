@@ -8,24 +8,20 @@ namespace TowerOfHanoi
     {
         public DataBaseSO DB;
 
-        protected IPickUp MyPickUpBehavior;
-        protected IPlace MyPlaceBehavior;
-        protected IReturn MyReturnBehavior;
+        protected IClick MyClickBehavior;
         protected IStartHover MyStartHoverBehavior;
         protected IStopHover MyStopHoverBehavior;
 
         private void Awake()
         {
-            MyPickUpBehavior = GetComponent<IPickUp>();
-            MyPlaceBehavior = GetComponent<IPlace>();
-            MyReturnBehavior = GetComponent<IReturn>();
+            MyClickBehavior = GetComponent<IClick>();
             MyStartHoverBehavior = GetComponent<IStartHover>();
             MyStopHoverBehavior = GetComponent<IStopHover>();
         }
 
         protected virtual void PointerClickResponse()
         {
-            
+            MyClickBehavior.OnClick();
         }
 
         protected virtual void PointerEnterResponse()

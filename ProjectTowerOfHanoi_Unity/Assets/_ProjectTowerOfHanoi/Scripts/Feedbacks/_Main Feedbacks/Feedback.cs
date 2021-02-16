@@ -8,6 +8,9 @@ namespace TowerOfHanoi
     {
         public SoundData SoundToPlay;
         public ParticleSystem ParticleFX;
+        public Animator FeedbackAnimator;
+        public string FeedbackAnimationTrigger;
+        public bool PlayAnimationOnStart = false;
 
         private void Start()
         {
@@ -20,18 +23,24 @@ namespace TowerOfHanoi
             {
                 ParticleFX.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
+
+            if (PlayAnimationOnStart &&
+                FeedbackAnimator != null)
+                PlayAnimation();
         }
 
         public void PlayFeedback()
         {
             PlaySounds();
             PlayParticleFX();
+            PlayAnimation();
         }
 
         public void StopFeedback()
         {
             StopSounds();
             StopParticleFX();
+            StopAnimation();
         }
 
         private void PlaySounds()
@@ -49,14 +58,22 @@ namespace TowerOfHanoi
         {
             if(ParticleFX != null)
                 ParticleFX.Play(true);
-            //ParticleFX?.SetActive(true);
         }
 
         private void StopParticleFX()
         {
             if (ParticleFX != null)
                 ParticleFX.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            //ParticleFX?.SetActive(false);
+        }
+
+        private void PlayAnimation()
+        {
+            FeedbackAnimator.SetTrigger(FeedbackAnimationTrigger);
+        }
+
+        private void StopAnimation()
+        {
+
         }
     }
 }

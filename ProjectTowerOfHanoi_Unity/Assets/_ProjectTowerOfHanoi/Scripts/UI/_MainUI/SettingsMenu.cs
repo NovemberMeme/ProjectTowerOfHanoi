@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Rendering.Universal;
 
 namespace WereAllGonnaDieAnywayNew
 {
     public class SettingsMenu : MonoBehaviour
     {
         public AudioMixer MainMixer;
+
+        
 
         public TMP_Dropdown resolutionDropDown;
 
@@ -48,11 +51,6 @@ namespace WereAllGonnaDieAnywayNew
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
         }
 
-        public void SetMasterVolume(float _volume)
-        {
-            MainMixer.SetFloat("MasterVolume", _volume);
-        }
-
         public void SetQuality(int qualityIndex)
         {
             QualitySettings.SetQualityLevel(qualityIndex);
@@ -63,14 +61,19 @@ namespace WereAllGonnaDieAnywayNew
             Screen.fullScreen = isFullScreen;
         }
 
+        public void SetMasterVolume(float _volume)
+        {
+            MainMixer.SetFloat("MasterVolume", _volume);
+        }
+
         public void SetMusicVolume(float _volume)
         {
-
+            MainMixer.SetFloat("MusicVolume", _volume);
         }
 
         public void SetSFXVolume(float _volume)
         {
-
+            MainMixer.SetFloat("SFXVolume", _volume);
         }
 
         public void SetBrightness(float _brightness)

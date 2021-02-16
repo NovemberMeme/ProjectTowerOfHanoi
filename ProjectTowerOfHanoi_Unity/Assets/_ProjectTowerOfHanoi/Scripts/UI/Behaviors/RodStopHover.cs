@@ -6,13 +6,13 @@ namespace TowerOfHanoi
 {
     public class RodStopHover : MonoBehaviour, IStopHover
     {
-        public FeedbackGroup OnStartHoverFeedbacks;
-        public FeedbackGroup OnStopHoverFeedbacks;
+        public FeedbackGroup FeedbacksToStart;
+        public FeedbackGroup FeedbacksToStop;
 
         public void OnStopHover()
         {
-            OnStartHoverFeedbacks?.StopFeedbacks();
-            OnStopHoverFeedbacks?.PlayFeedbacks();
+            FeedbacksToStop?.StopFeedbacks();
+            FeedbacksToStart?.PlayFeedbacks();
         }
     }
 }

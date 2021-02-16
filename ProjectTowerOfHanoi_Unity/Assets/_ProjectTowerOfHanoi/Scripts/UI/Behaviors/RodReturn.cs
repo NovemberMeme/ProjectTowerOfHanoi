@@ -6,12 +6,14 @@ namespace TowerOfHanoi
 {
     public class RodReturn : MonoBehaviour, IReturn
     {
-        public FeedbackGroup OnReturnFeedbacks;
+        public FeedbackGroup FeedbacksToStart;
+        public FeedbackGroup FeedbacksToStop;
 
         public void OnReturn(int _rodIndex)
         {
             DelegateManager.onSelected?.Invoke(_rodIndex);
-            OnReturnFeedbacks?.PlayFeedbacks();
+            FeedbacksToStop?.StopFeedbacks();
+            FeedbacksToStart?.PlayFeedbacks();
         }
     }
 }

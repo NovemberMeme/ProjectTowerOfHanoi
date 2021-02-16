@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace TowerOfHanoi
 {
@@ -19,6 +20,8 @@ namespace TowerOfHanoi
 
         [HideInInspector]
         public AudioSource Source;
+
+        public AudioMixerGroup OutputGroup;
 
         public SoundData(SoundData _copy)
         {
