@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace TowerOfHanoi
 {
+    /// <summary>
+    /// Mostly handles initialization of disks rather than runtime functions which are instead placed on 
+    /// the database scriptableobject so that its data is globally accessible and saved
+    /// </summary>
     public class DiskManager : MonoBehaviour
     {
         public DataBaseSO DB;
@@ -14,6 +18,10 @@ namespace TowerOfHanoi
             SetDisks();
         }
 
+        /// <summary>
+        /// Initializes the starting stack of disks based on the player's selected disk count from 2 to 12.
+        /// The system can handle more than 12 but the game becaomes unpleasant to navigate
+        /// </summary>
         public void SetDisks()
         {
             DB.SetPickUpPositions();

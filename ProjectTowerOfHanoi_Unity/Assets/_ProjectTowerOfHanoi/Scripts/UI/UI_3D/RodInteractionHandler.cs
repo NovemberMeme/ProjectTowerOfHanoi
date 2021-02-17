@@ -13,8 +13,9 @@ namespace TowerOfHanoi
         protected IPlace MyPlaceBehavior;
         protected IReturn MyReturnBehavior;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             MyPickUpBehavior = GetComponent<IPickUp>();
             MyPlaceBehavior = GetComponent<IPlace>();
             MyReturnBehavior = GetComponent<IReturn>();

@@ -19,7 +19,7 @@ namespace TowerOfHanoi
 
         private void OnEnable()
         {
-            Debug.Log("Check");
+
         }
 
         private void OnDisable()
@@ -51,11 +51,8 @@ namespace TowerOfHanoi
 
         public void InitializeSound(SoundData _soundData)
         {
-            //Debug.Log("Delegate Called?");
-
             if (!SoundList.Contains(_soundData))
             {
-                //Debug.Log("Add?");
                 SoundList.Add(_soundData);
                 _soundData.Source = gameObject.AddComponent<AudioSource>();
                 _soundData.Source.clip = _soundData.Clip;

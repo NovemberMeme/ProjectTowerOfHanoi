@@ -4,6 +4,12 @@ using UnityEngine;
 
 namespace TowerOfHanoi
 {
+    /// <summary>
+    /// The individual element of the feedback system. 
+    /// It can have up to one sound (SoundData), up to one particle system, and and up to one animation.
+    /// It does not need to have all fields filled in order to work i.e. there can be pure SFX feedbacks
+    /// or pure particle system feedbacks.
+    /// </summary>
     public class Feedback : MonoBehaviour
     {
         public SoundData SoundToPlay;
@@ -68,7 +74,8 @@ namespace TowerOfHanoi
 
         private void PlayAnimation()
         {
-            FeedbackAnimator.SetTrigger(FeedbackAnimationTrigger);
+            if(FeedbackAnimator != null)
+                FeedbackAnimator.SetTrigger(FeedbackAnimationTrigger);
         }
 
         private void StopAnimation()

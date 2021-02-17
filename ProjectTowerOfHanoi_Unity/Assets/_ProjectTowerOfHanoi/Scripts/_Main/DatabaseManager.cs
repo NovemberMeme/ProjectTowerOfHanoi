@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace TowerOfHanoi
 {
+    /// <summary>
+    /// Since scriptableobjects have no monobehavior callbacks, this initializes database values and subscribes
+    /// database functions to needed delagates
+    /// </summary>
     public class DatabaseManager : MonoBehaviour
     {
         public DataBaseSO DB;

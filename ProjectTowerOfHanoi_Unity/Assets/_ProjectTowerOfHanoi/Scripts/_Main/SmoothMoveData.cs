@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace TowerOfHanoi
 {
+    /// <summary>
+    /// Pure c# class to simplify parameters for smooth move functions
+    /// </summary>
     public class SmoothMoveData
     {
         public Disk ToMove;

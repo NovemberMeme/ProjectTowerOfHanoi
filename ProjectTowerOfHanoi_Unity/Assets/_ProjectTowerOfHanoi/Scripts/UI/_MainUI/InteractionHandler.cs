@@ -12,7 +12,7 @@ namespace TowerOfHanoi
         protected IStartHover MyStartHoverBehavior;
         protected IStopHover MyStopHoverBehavior;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             MyClickBehavior = GetComponent<IClick>();
             MyStartHoverBehavior = GetComponent<IStartHover>();

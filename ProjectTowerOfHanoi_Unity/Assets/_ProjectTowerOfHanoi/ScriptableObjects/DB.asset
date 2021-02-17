@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DB
   m_EditorClassIdentifier: 
   CurrentHeldDisk: {fileID: 0}
-  DiskCount: 5
+  DiskCount: 6
   BaseMaterial: {fileID: 2100000, guid: 0417be2cf6742864188e1e987183bd6b, type: 2}
   BaseColor: {r: 0.42436174, g: 0.4198113, b: 1, a: 1}
   SizeScaleFactor: 0.1
@@ -51,3 +51,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c4f44cbf32566a2499e94e454d6aa96d, type: 2}
   - {fileID: 11400000, guid: 1159a62898e904c4dbc0f905825aa54f, type: 2}
   - {fileID: 11400000, guid: 530081fdb2ab2f14789e1d6ecede495d, type: 2}
+  OffCM: {fileID: 0}
+  MainMenuCM: {fileID: 0}
+  LoadMenuCM: {fileID: 0}
+  SettingsMenuCM: {fileID: 0}
+  DiskSetupMenuCM: {fileID: 0}
+  GameCM: {fileID: 0}
