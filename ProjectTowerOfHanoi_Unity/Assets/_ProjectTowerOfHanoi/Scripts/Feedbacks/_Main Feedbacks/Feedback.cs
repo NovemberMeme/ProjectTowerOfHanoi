@@ -14,6 +14,8 @@ namespace TowerOfHanoi
     {
         public SoundData SoundToPlay;
         public ParticleSystem ParticleFX;
+        public GameObject ParticleFXPrefab;
+        public bool shouldInstantiateParticleFX;
         public Animator FeedbackAnimator;
         public string FeedbackAnimationTrigger;
         public bool PlayAnimationOnStart = false;
@@ -57,14 +59,29 @@ namespace TowerOfHanoi
 
         }
 
+        /// <summary>
+        /// Differentiates between particle FX that require spawning every time
+        /// </summary>
         private void PlayParticleFX()
         {
             if(ParticleFX != null)
             {
-                ChildController controller = ParticleFX.GetComponent<ChildController>();
-                if (controller != null)
-                    controller.SetChildrenActive(true);
-                ParticleFX.Play(true);
+                if (shouldInstantiateParticleFX)
+                {
+                    GameObject FXobject = Instantiate(ParticleFXPrefab, transform.position, Quaternion.identity);
+                    ParticleSystem FX = FXobject.GetComponent<ParticleSystem>();
+                    ChildController FXcontroller = FXobject.GetComponent<ChildController>();
+                    if (FXcontroller != null)
+                        FXcontroller.SetChildrenActive(true);
+                    FX.Play(true);
+                }
+                else
+                {
+                    ChildController controller = ParticleFX.GetComponent<ChildController>();
+                    if (controller != null)
+                        controller.SetChildrenActive(true);
+                    ParticleFX.Play(true);
+                }
             }
         }
 

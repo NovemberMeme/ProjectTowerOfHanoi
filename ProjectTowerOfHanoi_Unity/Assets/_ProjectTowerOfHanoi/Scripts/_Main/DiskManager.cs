@@ -27,7 +27,7 @@ namespace TowerOfHanoi
 
         private void Start()
         {
-            SetUpDisks(2);
+            InitializeDisks();
         }
 
         private void OnEnable()
@@ -40,6 +40,12 @@ namespace TowerOfHanoi
         {
             DelegateManager.setupDisks -= SetUpDisks;
             DelegateManager.win -= Win;
+        }
+
+        public void InitializeDisks()
+        {
+            SetUpDisks(2);
+            DB.DiskCount = 2;
         }
 
         /// <summary>
@@ -121,6 +127,7 @@ namespace TowerOfHanoi
         {
             yield return new WaitForSeconds(DB.WinClearDisksDelay);
             ClearDisks();
+            InitializeDisks();
         }
     }
 }

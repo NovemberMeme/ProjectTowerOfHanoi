@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DB
   m_EditorClassIdentifier: 
   CurrentHeldDisk: {fileID: 0}
-  DiskCount: 2
+  DiskCount: 3
   GameIsOngoing: 1
   BaseMaterial: {fileID: 2100000, guid: 0417be2cf6742864188e1e987183bd6b, type: 2}
   BaseColor: {r: 0.42436174, g: 0.4198113, b: 1, a: 1}
@@ -29,10 +29,11 @@ MonoBehaviour:
   PlacedState: {fileID: 11400000, guid: 71e4dc2c59f9f9b449287d67d5a81765, type: 2}
   CurrentSO_StateData:
     SO_State: {fileID: 11400000, guid: 71e4dc2c59f9f9b449287d67d5a81765, type: 2}
-    RodIndex: 2
+    RodIndex: 0
   WinClearDisksDelay: 1
   GameFeedbacks:
   - {fileID: 2898264461428154347, guid: 456f352d9ca7c8b4b9d3fd2e7c89f02d, type: 3}
+  - {fileID: 2898264461428154347, guid: 72fea4b4e96b79a4b9adef460e1fd823, type: 3}
   pickUpPositions:
   - {fileID: 0}
   - {fileID: 0}

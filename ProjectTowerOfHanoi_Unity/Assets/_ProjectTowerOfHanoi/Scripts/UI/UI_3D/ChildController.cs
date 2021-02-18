@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace TowerOfHanoi
 {
+    /// <summary>
+    /// Usually for particle FX that have more children particle FX
+    /// </summary>
     public class ChildController : MonoBehaviour
     {
         public void SetChildrenActive(bool _turnOn)

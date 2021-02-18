@@ -235,6 +235,11 @@ namespace TowerOfHanoi
             CheckWin();
         }
 
+        /// <summary>
+        /// Checks that the 1st 2 rod disk stacks are empty and the last one is full.
+        /// If it does not check that the last one is full then it immediately calls win the moment the player
+        /// merely picks up the final disk to move which is premature
+        /// </summary>
         private void CheckWin()
         {
             if (DiskSets[0].RuntimeSet.Count < 1 &&
@@ -243,10 +248,13 @@ namespace TowerOfHanoi
                 Win();
         }
 
+        /// <summary>
+        /// The win event is made global for the multiple things which need to happen when it triggers
+        /// </summary>
         private void Win()
         {
-            GameFeedbacks[0].PlayFeedbacks();
             DelegateManager.win?.Invoke();
+            GameIsOngoing = false;
         }
 
         #endregion

@@ -8,6 +8,10 @@ using UnityEngine.SceneManagement;
 
 namespace TowerOfHanoi
 {
+    /// <summary>
+    /// Handles exposed functions for menu buttons other than settings menu UI.
+    /// Also handles disk count choices of the player
+    /// </summary>
     public class MainMenu : MonoBehaviour
     {
         [Header("Disk Setup Menu: ")]
@@ -19,6 +23,10 @@ namespace TowerOfHanoi
 
         public UnityEvent SetDisksEvent = new UnityEvent();
 
+        /// <summary>
+        /// Uses a slider to dynamically adjust the disk count
+        /// </summary>
+        /// <param name="_diskCount"></param>
         public void SetDiskCount(float _diskCount)
         {
             DB.DiskCount = Mathf.RoundToInt(_diskCount);

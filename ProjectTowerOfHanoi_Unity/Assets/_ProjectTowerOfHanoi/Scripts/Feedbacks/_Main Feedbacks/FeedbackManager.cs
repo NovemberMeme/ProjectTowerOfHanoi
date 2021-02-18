@@ -12,6 +12,16 @@ namespace TowerOfHanoi
         public Transform FeedbackHolder;
         public DataBaseSO DB;
 
+        private void OnEnable()
+        {
+            DelegateManager.win += Win;
+        }
+
+        private void OnDisable()
+        {
+            DelegateManager.win -= Win;
+        }
+
         private void Start()
         {
             InitializeFeedbacks();
@@ -34,6 +44,11 @@ namespace TowerOfHanoi
                     Quaternion.identity, 
                     FeedbackHolder);
             }
+        }
+
+        private void Win()
+        {
+            FeedbackHolder.GetChild(0).GetComponent<FeedbackGroup>().PlayFeedbacks();
         }
     }
 }
