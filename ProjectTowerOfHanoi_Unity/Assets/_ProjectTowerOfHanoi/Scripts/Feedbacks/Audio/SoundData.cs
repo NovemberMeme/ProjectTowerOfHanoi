@@ -5,6 +5,9 @@ using UnityEngine.Audio;
 
 namespace TowerOfHanoi
 {
+    /// <summary>
+    /// Contains only the most common fields of an AudioSource to initialize one
+    /// </summary>
     [System.Serializable]
     public class SoundData
     {
@@ -34,6 +37,7 @@ namespace TowerOfHanoi
             Pitch = _copy.Pitch;
             Loop = _copy.Loop;
             PlayOnAwake = _copy.PlayOnAwake;
+            OutputGroup = _copy.OutputGroup;
         }
     }
 }

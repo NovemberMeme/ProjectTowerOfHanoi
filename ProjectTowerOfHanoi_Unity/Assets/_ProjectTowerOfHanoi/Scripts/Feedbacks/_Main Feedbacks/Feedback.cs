@@ -25,10 +25,7 @@ namespace TowerOfHanoi
             if (SoundToPlay.PlayOnAwake)
                 PlaySounds();
 
-            if (ParticleFX != null)
-            {
-                ParticleFX.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            }
+            StopParticleFX();
 
             if (PlayAnimationOnStart &&
                 FeedbackAnimator != null)
@@ -63,13 +60,23 @@ namespace TowerOfHanoi
         private void PlayParticleFX()
         {
             if(ParticleFX != null)
+            {
+                ChildController controller = ParticleFX.GetComponent<ChildController>();
+                if (controller != null)
+                    controller.SetChildrenActive(true);
                 ParticleFX.Play(true);
+            }
         }
 
         private void StopParticleFX()
         {
             if (ParticleFX != null)
+            {
                 ParticleFX.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                ChildController controller = ParticleFX.GetComponent<ChildController>();
+                if (controller != null)
+                    controller.SetChildrenActive(false);
+            }
         }
 
         private void PlayAnimation()

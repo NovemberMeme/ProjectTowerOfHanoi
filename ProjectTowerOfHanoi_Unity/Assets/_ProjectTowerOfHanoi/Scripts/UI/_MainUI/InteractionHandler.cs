@@ -4,6 +4,12 @@ using UnityEngine;
 
 namespace TowerOfHanoi
 {
+    /// <summary>
+    /// The main script of the part of the game which follows the strategy design pattern, allowing a developer to define
+    /// multiple behaviors per interface, while this script simply calls the interface function/s and should never need
+    /// to be modified in the future, although it can be expanded upon usually by using inheritance like with 
+    /// the RodInteractionHandler
+    /// </summary>
     public class InteractionHandler : MonoBehaviour
     {
         public DataBaseSO DB;
@@ -19,17 +25,17 @@ namespace TowerOfHanoi
             MyStopHoverBehavior = GetComponent<IStopHover>();
         }
 
-        protected virtual void PointerClickResponse()
+        public virtual void PointerClickResponse()
         {
             MyClickBehavior.OnClick();
         }
 
-        protected virtual void PointerEnterResponse()
+        public virtual void PointerEnterResponse()
         {
             MyStartHoverBehavior.OnStartHover();
         }
 
-        protected virtual void PointerExitResponse()
+        public virtual void PointerExitResponse()
         {
             MyStopHoverBehavior.OnStopHover();
         }

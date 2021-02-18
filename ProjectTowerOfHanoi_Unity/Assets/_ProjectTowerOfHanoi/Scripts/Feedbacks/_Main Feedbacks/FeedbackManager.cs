@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace TowerOfHanoi
 {
+    /// <summary>
+    /// This script is meant to initialize all the feedback group prefabs assigned to the database
+    /// </summary>
     public class FeedbackManager : MonoBehaviour
     {
         public Transform FeedbackHolder;
@@ -14,6 +17,10 @@ namespace TowerOfHanoi
             InitializeFeedbacks();
         }
 
+        /// <summary>
+        /// For each feedback group prefab in the database list, it instantiates it as a child of the FeedbackHolder.
+        /// If there is no FeedbackHolder assigned then it uses itself as the FeedbackHolder
+        /// </summary>
         private void InitializeFeedbacks()
         {
             if (FeedbackHolder == null)
@@ -26,15 +33,6 @@ namespace TowerOfHanoi
                     transform.position, 
                     Quaternion.identity, 
                     FeedbackHolder);
-
-                //FeedbackGroup newFBGroup = newFBGroupObject.GetComponent<FeedbackGroup>();
-
-                //for (int j = 0; j < newFBGroup.Feedbacks.Length; j++)
-                //{
-                //    newFBGroup.Feedbacks[j].SoundToPlay = new SoundData(newFBGroup.Feedbacks[j].SoundToPlay);
-                //    DelegateManager.initializeSound.Invoke(newFBGroup.Feedbacks[j].SoundToPlay);
-                //    Debug.Log("Invoked " + newFBGroup.Feedbacks[j].SoundToPlay.Clip.name);
-                //}
             }
         }
     }

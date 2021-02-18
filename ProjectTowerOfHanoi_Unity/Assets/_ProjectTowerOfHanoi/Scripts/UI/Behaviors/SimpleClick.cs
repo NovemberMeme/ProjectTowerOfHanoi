@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TowerOfHanoi
 {
-    public class SimpleClick : IClick
+    public class SimpleClick : MonoBehaviour, IClick
     {
         public FeedbackGroup FeedbacksToStart;
         public FeedbackGroup FeedbacksToStop;

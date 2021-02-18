@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: DB
   m_EditorClassIdentifier: 
   CurrentHeldDisk: {fileID: 0}
-  DiskCount: 6
+  DiskCount: 2
+  GameIsOngoing: 1
   BaseMaterial: {fileID: 2100000, guid: 0417be2cf6742864188e1e987183bd6b, type: 2}
   BaseColor: {r: 0.42436174, g: 0.4198113, b: 1, a: 1}
   SizeScaleFactor: 0.1
@@ -21,32 +22,25 @@ MonoBehaviour:
   Spacing: 0.5
   PickUpPositionSpacing: 3
   MoveSpeed: 25
-  HoverSFXCooldown: 0.2
+  HoverSFXCooldown: 0.01
   IsOnHoverCooldown: 0
-  StateDefinition: {fileID: 11400000, guid: 75049b8bc4be2b24fb602b575230aa83, type: 2}
+  AnimatingState: {fileID: 11400000, guid: 9f871e983f1f3bd46bb43f96b8fc27d9, type: 2}
+  HeldState: {fileID: 11400000, guid: f6b2b02313a73384e9a182b0d3462e4b, type: 2}
+  PlacedState: {fileID: 11400000, guid: 71e4dc2c59f9f9b449287d67d5a81765, type: 2}
   CurrentSO_StateData:
     SO_State: {fileID: 11400000, guid: 71e4dc2c59f9f9b449287d67d5a81765, type: 2}
-    RodIndex: 0
+    RodIndex: 2
+  WinClearDisksDelay: 1
   GameFeedbacks:
-  - {fileID: 2898264461428154347, guid: b40aee1334a87a840b0ce3bc7f9e22b8, type: 3}
-  - {fileID: 2829403519526531136, guid: f19b1d53d15448845bd21fe865e3b92f, type: 3}
-  - {fileID: 2829403519526531136, guid: 4dbcc417ccda49d4a88709a0eb92bbbd, type: 3}
-  - {fileID: 2829403519526531136, guid: 3ec1053d0dfb65c48b6d9a2cf5acfcaf, type: 3}
-  - {fileID: 2829403519526531136, guid: cf0f63e94882f144f8efee6d170cfa90, type: 3}
-  - {fileID: 2829403519526531136, guid: 4a82ebfbbd60ca343aacad667d61b5e1, type: 3}
-  - {fileID: 2829403519526531136, guid: d20f3f73e61b4c24c87eb2a378679c5a, type: 3}
-  - {fileID: 2829403519526531136, guid: b5690b137c268cb4b8091e881069c30b, type: 3}
-  - {fileID: 2829403519526531136, guid: 76d565ec57c28e745a9afd4abddda223, type: 3}
-  - {fileID: 2829403519526531136, guid: d353bff8413bd664daf791d71b144d14, type: 3}
-  - {fileID: 2829403519526531136, guid: cd3b1472c00a4f34693bd9ad9cb3cad0, type: 3}
-  - {fileID: 2829403519526531136, guid: 0744b129a54a9754fa83b461ceb88634, type: 3}
-  - {fileID: 2829403519526531136, guid: 8e7907be998086b4c8c86e06e34a9cbc, type: 3}
-  - {fileID: 2829403519526531136, guid: b17ead61f5aac1f4b9cc1bc2c4d8f3d0, type: 3}
-  - {fileID: 2829403519526531136, guid: 4956dd8bbc6058c4bb5c0f14369a6a86, type: 3}
+  - {fileID: 2898264461428154347, guid: 456f352d9ca7c8b4b9d3fd2e7c89f02d, type: 3}
+  pickUpPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   RodPositions:
-  - {x: -5, y: -3, z: 0}
-  - {x: 0, y: -3, z: 0}
-  - {x: 5, y: -3, z: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   DiskSets:
   - {fileID: 11400000, guid: c4f44cbf32566a2499e94e454d6aa96d, type: 2}
   - {fileID: 11400000, guid: 1159a62898e904c4dbc0f905825aa54f, type: 2}

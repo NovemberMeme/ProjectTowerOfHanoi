@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Cinemachine;
 
 namespace TowerOfHanoi
@@ -17,6 +18,8 @@ namespace TowerOfHanoi
         public Disk CurrentHeldDisk = null;
 
         public int DiskCount = 3;
+
+        public bool GameIsOngoing = false;
 
         public Material BaseMaterial;
         public Color BaseColor;
@@ -42,17 +45,21 @@ namespace TowerOfHanoi
         /// <summary>
         /// A set of defined states, in this case disk states of the currently held disk in a Tower of Hanoi game
         /// </summary>
-        public SO_StateDefinition StateDefinition;
+        public SO_State AnimatingState;
+        public SO_State HeldState;
+        public SO_State PlacedState;
         public SO_StateData CurrentSO_StateData;
 
+        public float WinClearDisksDelay = 1;
         /// <summary>
         /// Most feedbacks are components attached to various scene gameobjects, but if any feedbacks need to be global
         /// they can be assigned to this list
         /// </summary>
         public List<FeedbackGroup> GameFeedbacks;
 
-        List<Vector3> pickUpPositions = new List<Vector3>();
-        public List<Vector3> RodPositions = new List<Vector3>();
+        [HideInInspector]
+        public List<Transform> pickUpPositions = new List<Transform>();
+        public List<Transform> RodPositions = new List<Transform>();
         public List<ThingRuntimeSet> DiskSets = new List<ThingRuntimeSet>();
 
         [HideInInspector]
@@ -81,6 +88,9 @@ namespace TowerOfHanoi
         /// <param name="_rodIndex"></param>
         public void OnSelected(int _rodIndex)
         {
+            if (!GameIsOngoing)
+                return;
+
             if(CurrentHeldDisk == null)
             {
                 if (DiskSets[_rodIndex].RuntimeSet.Count != 0)
@@ -101,20 +111,26 @@ namespace TowerOfHanoi
         public void PickUp(Disk _disk, int _rodIndex, bool _smooth)
         {
             Thing currentDiskThing = _disk.GetComponent<Thing>();
-            currentDiskThing.MySet.RuntimeSet.Remove(currentDiskThing);
-            currentDiskThing.MySet = null;
+
+            if(currentDiskThing.MySet != null)
+            {
+                currentDiskThing.ChangeThing(null);
+                //currentDiskThing.MySet.RuntimeSet.Remove(currentDiskThing);
+                //currentDiskThing.MySet = null;
+            }
+
             if (_smooth)
             {
-                CurrentSO_StateData.SetData(StateDefinition.AnimatingState, _rodIndex);
+                CurrentSO_StateData.SetData(AnimatingState, _rodIndex);
                 List<Vector3> destinations = new List<Vector3>();
-                destinations.Add(pickUpPositions[_disk.MyRodIndex]);
+                destinations.Add(pickUpPositions[_disk.MyRodIndex].position);
                 SmoothMoveData data = new SmoothMoveData(_disk, destinations);
-                Utils.SmoothMove(data, MoveSpeed, new SO_StateData(StateDefinition.HeldState, _rodIndex));
+                Utils.SmoothMove(data, MoveSpeed, new SO_StateData(HeldState, _rodIndex));
             }
             else
             {
-                CurrentSO_StateData.SetData(StateDefinition.HeldState, _rodIndex);
-                _disk.transform.position = pickUpPositions[_disk.MyRodIndex];
+                CurrentSO_StateData.SetData(HeldState, _rodIndex);
+                _disk.transform.position = pickUpPositions[_disk.MyRodIndex].position;
             }
             CurrentHeldDisk = _disk;
             //Debug.Log(CurrentHeldDisk.MyDiskSizeIndex);
@@ -131,16 +147,16 @@ namespace TowerOfHanoi
             {
                 if (_smooth)
                 {
-                    CurrentSO_StateData.SetData(StateDefinition.AnimatingState, _rodIndex);
+                    CurrentSO_StateData.SetData(AnimatingState, _rodIndex);
                     List<Vector3> destinations = new List<Vector3>();
-                    destinations.Add(pickUpPositions[_rodIndex]);
+                    destinations.Add(pickUpPositions[_rodIndex].position);
                     destinations.Add(GetPlacePosition(_rodIndex));
                     SmoothMoveData data = new SmoothMoveData(CurrentHeldDisk, destinations);
-                    Utils.SmoothMove(data, MoveSpeed, new SO_StateData(StateDefinition.PlacedState, _rodIndex));
+                    Utils.SmoothMove(data, MoveSpeed, new SO_StateData(PlacedState, _rodIndex));
                 }
                 else
                 {
-                    CurrentSO_StateData.SetData(StateDefinition.PlacedState, _rodIndex);
+                    CurrentSO_StateData.SetData(PlacedState, _rodIndex);
                     CurrentHeldDisk.transform.position = GetPlacePosition(_rodIndex);
                 }
                 CurrentHeldDisk.GetComponent<Thing>().ChangeThing(DiskSets[_rodIndex]);
@@ -171,7 +187,7 @@ namespace TowerOfHanoi
 
             //Debug.Log(yDistance);
 
-            return RodPositions[_rodIndex] + new Vector3(0, yDistance, 0);
+            return RodPositions[_rodIndex].position + new Vector3(0, yDistance, 0);
         }
 
         /// <summary>
@@ -195,7 +211,6 @@ namespace TowerOfHanoi
         /// </summary>
         public void SetPickUpPositions()
         {
-            pickUpPositions.Clear();
             for (int i = 0; i < RodPositions.Count; i++)
             {
                 float yDistance = 0;
@@ -205,8 +220,8 @@ namespace TowerOfHanoi
                     yDistance += DiskSets[i].RuntimeSet.Count * DistanceScaleFactor;
                 }
 
-                Vector3 newPickUpPosition = RodPositions[i] + new Vector3(0, yDistance + PickUpPositionSpacing, 0);
-                pickUpPositions.Add(newPickUpPosition);
+                Vector3 newPickUpPosition = RodPositions[i].position + new Vector3(0, yDistance + PickUpPositionSpacing, 0);
+                pickUpPositions[i].position = newPickUpPosition;
             }
         }
 
@@ -217,6 +232,21 @@ namespace TowerOfHanoi
         public void OnDiskStateChanged(SO_StateData _newDiskStateData)
         {
             CurrentSO_StateData = _newDiskStateData;
+            CheckWin();
+        }
+
+        private void CheckWin()
+        {
+            if (DiskSets[0].RuntimeSet.Count < 1 &&
+                DiskSets[1].RuntimeSet.Count < 1 &&
+                DiskSets[2].RuntimeSet.Count == DiskCount)
+                Win();
+        }
+
+        private void Win()
+        {
+            GameFeedbacks[0].PlayFeedbacks();
+            DelegateManager.win?.Invoke();
         }
 
         #endregion

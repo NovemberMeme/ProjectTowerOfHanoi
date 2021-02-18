@@ -40,5 +40,17 @@ namespace TowerOfHanoi
         /// <param name="_diskStateData"></param>
         public delegate void OnDiskStateChanged(SO_StateData _diskStateData);
         public static OnDiskStateChanged onDiskStateChanged;
+
+        /// <summary>
+        /// Used by menus to set up the disks according to the player's chosen disk count
+        /// </summary>
+        public delegate void SetDisks(int _diskCount);
+        public static SetDisks setupDisks;
+
+        /// <summary>
+        /// Used to broadcast a win event
+        /// </summary>
+        public delegate void Win();
+        public static Win win;
     }
 }

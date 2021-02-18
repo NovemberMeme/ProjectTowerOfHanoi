@@ -9,17 +9,17 @@ namespace TowerOfHanoi
     {
         public void OnPointerClick(PointerEventData eventData)
         {
-            
+            PointerClickResponse();
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            
+            PointerEnterResponse();
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            
+            PointerExitResponse();
         }
     }
 }

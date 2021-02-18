@@ -6,6 +6,9 @@ using TMPro;
 
 namespace TowerOfHanoi
 {
+    /// <summary>
+    /// Manages the UI of the Disk Setup Menu
+    /// </summary>
     public class DiskSetupMenu : MonoBehaviour
     {
         public DataBaseSO DB;
@@ -17,6 +20,7 @@ namespace TowerOfHanoi
         {
             DB.DiskCount = Mathf.RoundToInt(_diskCount);
             DiskCountText.text = DB.DiskCount.ToString();
+            DelegateManager.setupDisks(DB.DiskCount);
         }
     }
 }

@@ -36,11 +36,14 @@ namespace TowerOfHanoi
             PointerExitResponse();
         }
 
-        protected override void PointerClickResponse()
+        public override void PointerClickResponse()
         {
-            if (DB.CurrentSO_StateData.SO_State != DB.StateDefinition.AnimatingState)
+            if (!DB.GameIsOngoing)
+                return;
+
+            if (DB.CurrentSO_StateData.SO_State != DB.AnimatingState)
             {
-                if (DB.CurrentSO_StateData.SO_State == DB.StateDefinition.HeldState)
+                if (DB.CurrentSO_StateData.SO_State == DB.HeldState)
                 {
                     if (DB.CurrentSO_StateData.RodIndex == RodIndex)
                     {
@@ -51,36 +54,34 @@ namespace TowerOfHanoi
                         MyPlaceBehavior.OnPlace(RodIndex);
                     }
                 }
-                else if (DB.CurrentSO_StateData.SO_State == DB.StateDefinition.PlacedState)
+                else if (DB.CurrentSO_StateData.SO_State == DB.PlacedState)
                 {
                     MyPickUpBehavior.OnPickUp(RodIndex);
                 }
             }
         }
 
-        protected override void PointerEnterResponse()
+        public override void PointerEnterResponse()
         {
-            if (DB.CurrentSO_StateData.SO_State == DB.StateDefinition.PlacedState &&
+            if (!DB.GameIsOngoing)
+                return;
+
+            if (DB.CurrentSO_StateData.SO_State == DB.PlacedState &&
                             !DB.IsOnHoverCooldown)
             {
                 MyStartHoverBehavior.OnStartHover();
             }
         }
 
-        protected override void PointerExitResponse()
+        public override void PointerExitResponse()
         {
-            if (DB.CurrentSO_StateData.SO_State == DB.StateDefinition.PlacedState &&
-                            !DB.IsOnHoverCooldown)
+            if (!DB.GameIsOngoing)
+                return;
+
+            if (DB.CurrentSO_StateData.SO_State == DB.PlacedState)
             {
                 MyStopHoverBehavior.OnStopHover();
             }
-        }
-
-        private IEnumerator _BeginHoverSFXCooldown()
-        {
-            DB.IsOnHoverCooldown = true;
-            yield return new WaitForSeconds(DB.HoverSFXCooldown);
-            DB.IsOnHoverCooldown = false;
         }
     }
 }

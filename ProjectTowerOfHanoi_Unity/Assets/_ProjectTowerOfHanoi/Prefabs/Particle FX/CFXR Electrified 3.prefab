@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3022441561379486549}
   - component: {fileID: 3022441561379486547}
   - component: {fileID: 3022441561379486548}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4774,7 +4774,7 @@ GameObject:
   - component: {fileID: 3022441561854825947}
   - component: {fileID: 3022441561854825945}
   - component: {fileID: 3022441561854825946}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9587,7 +9587,7 @@ GameObject:
   - component: {fileID: 5934075390059088735}
   - component: {fileID: 5934075390059088728}
   - component: {fileID: 8266153709541524638}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CFXR Electrified 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14518,7 +14518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8912489805387865848}
   - component: {fileID: 3125280481141142160}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14551,7 +14551,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.7311321, g: 0.9361015, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1.3964448
   m_Range: 8
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

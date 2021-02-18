@@ -4,21 +4,36 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace WereAllGonnaDieAnywayNew
+namespace TowerOfHanoi
 {
+    /// <summary>
+    /// Holds all the public functions for adjusting the auxiliary game settings rather than the gameplay settings.
+    /// </summary>
     public class SettingsMenu : MonoBehaviour
     {
-        public AudioMixer MainMixer;
+        public VolumeProfile GlobalVolumeProfile;
+        private ColorAdjustments colorAdjustments;
 
-        
+        public AudioMixer MainMixer;
 
         public TMP_Dropdown resolutionDropDown;
 
         Resolution[] resolutions;
 
         private void Start()
+        {
+            InitializeResolutions();
+            GlobalVolumeProfile.TryGet<ColorAdjustments>(out ColorAdjustments component);
+            colorAdjustments = component;
+        }
+
+        /// <summary>
+        /// Dynamically creates a list of the current device's available resolutions and adds them to the dropdown's list
+        /// </summary>
+        private void InitializeResolutions()
         {
             resolutions = Screen.resolutions;
 
@@ -33,7 +48,7 @@ namespace WereAllGonnaDieAnywayNew
                 string option = resolutions[i].width + " x " + resolutions[i].height;
                 options.Add(option);
 
-                if(resolutions[i].width == Screen.currentResolution.width &&
+                if (resolutions[i].width == Screen.currentResolution.width &&
                     resolutions[i].height == Screen.currentResolution.height)
                 {
                     currentResolutionIndex = i;
@@ -78,7 +93,7 @@ namespace WereAllGonnaDieAnywayNew
 
         public void SetBrightness(float _brightness)
         {
-
+            colorAdjustments.postExposure.value = _brightness;
         }
     }
 }

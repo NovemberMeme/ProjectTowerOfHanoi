@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace TowerOfHanoi
 {
+    /// <summary>
+    /// Groups feedbacks together so that a defined set of feedbacks can be saved as one prefab
+    /// </summary>
     public class FeedbackGroup : MonoBehaviour
     {
         public Transform FeedbacksTransform;
@@ -17,6 +20,9 @@ namespace TowerOfHanoi
                 Feedbacks = GetComponents<Feedback>();
         }
 
+        /// <summary>
+        /// Plays all the feedbacks in the list, this can be modified in the future to have sequencing logic
+        /// </summary>
         [ContextMenu("Play Feedbacks")]
         public void PlayFeedbacks()
         {
@@ -26,6 +32,9 @@ namespace TowerOfHanoi
             }
         }
 
+        /// <summary>
+        /// Stops all the feedbacks in the list, usually to end loops
+        /// </summary>
         public void StopFeedbacks()
         {
             for (int i = 0; i < Feedbacks.Length; i++)
